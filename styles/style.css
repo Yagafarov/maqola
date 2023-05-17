@@ -1,0 +1,37 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* scroll bar styles */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--bs-primary);
+    border-radius: 5px;
+}
+
+.wrapper,
+section {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+.asosiy {
+    height: 90vh;
+    width: 100%;
+    display: grid;
+    text-align: center;
+    place-items: center;
+}
+
+.blockquote {
+    text-align: center;
+}
