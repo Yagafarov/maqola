@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssss", $muallif, $familiya, $email, $mavzu, $content);
 
     if ($stmt->execute()) {
-        echo "<div class='alert alert-success positiobn-absalute justify-content-center'>Bosh yaratildi <a href='./index.php' class='btn btn-danger float-end'>Chiqish</a></div>";
+        echo "<div class='alert alert-success positiobn-absalute justify-content-center'>Post yaratildi <a href='./index.php' class='btn btn-danger float-end'>Chiqish</a></div>";
     } else {
         echo "<div class='alert alert-danger position-absalute justify-content-center'>Error adding the post: " . $stmt->error." <a href='./index.php' class='btn btn-danger float-end'>Chiqish</a></div>";
     }

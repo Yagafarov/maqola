@@ -54,18 +54,8 @@
                     </p>
                     <a href="#" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Boshlash</a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class=" w-100 fs-5 text-center">Tizimga kirish</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div>
-                                    <?php
+                        <div class="position-absolute" style="top:10%; left:9%;">
+                        <?php
                                     if (isset($_POST["signIn"])) {
                                         $lUser = $_POST['recipient-name'];
                                         $lPass = $_POST['pass'];
@@ -83,10 +73,23 @@
                                                 echo "<div class='alert alert-danger'>Parol noto'g'ri</div>";
                                             }
                                         }else{
-                                            echo "<div class='alert alert-danger'>Bunday foydalanuvchi tizimga mavjud emas<br><a href='./signup.php'>ro'yxatdan o'ting</a></div>";
+                                            echo "<div class='alert alert-danger'>Bunday foydalanuvchi tizimga mavjud emas<br><a href='./index.php'>yangilash</a></div>";
                                         }
                                     }
                                     ?>
+                        </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class=" w-100 fs-5 text-center">Tizimga kirish</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div>
+                                   
                                 </div>
                                 <div class="modal-body">
                                     <form method="post" action="index.php">
@@ -127,82 +130,36 @@
                         title="Source Title">tanishing</cite></footer>
             </blockquote>
             <div class="row mt-5">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4 p-3">
-                                <img src="./assets/images/rasm.jpg"
-                                    class="img-fluid w-100 h-100 object-fit-cover border rounded" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                            ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="./assets/images/rasm.jpg"
-                                    class="img-fluid  w-100 h-100 object-fit-cover border rounded" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                            ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="./assets/images/rasm.jpg"
-                                    class="img-fluid  w-100 h-100 object-fit-cover border rounded" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                            ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="./assets/images/rasm.jpg"
-                                    class="img-fluid  w-100 h-100 object-fit-cover border rounded" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                            ago</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <?php
+            require_once "./config.php";
+                                    $sql = "SELECT * FROM yangiliklar";
+                                    $result = mysqli_query($ulanish,$sql);
+
+                                    while($data = $result->fetch_row()){
+                                        echo '
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <div class="card mb-3" style="max-width: 540px;">
+                                                <div class="row g-0">
+                                                    <div class="col-md-4 p-3">
+                                                        <img src="./assets/images/rasm.jpg"
+                                                            class="img-fluid w-100 h-100 object-fit-cover border rounded" alt="...">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">'.$data[1].'</h5>
+                                                            <p class="card-text">'.$data[2].'</p>
+                                                            <p class="card-text"><small class="text-body-secondary">Anodra
+                                                            </small></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        ';
+                                    }
+                                    
+                                    ?>
+                
             </div>
         </div>
     </section>
